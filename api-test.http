@@ -1,0 +1,47 @@
+### GET POSTS ? public
+GET http://localhost:8000/posts HTTP/1.1
+
+### GET A POST ? public
+GET http://localhost:8000/posts/6 HTTP/1.1
+
+### ADD A POST ? private
+POST http://localhost:8000/posts/new HTTP/1.1
+content-type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IkVsaWphaCIsImlhdCI6MTYyNTIyODMxOCwiZXhwIjoxNjI1MzE0NzE4fQ.ifQnEcbuuKSMjo9o-lqEZusMjxDprC7J_1_2B2BmP1k
+
+{
+  "title": "New Post",
+  "body": "This is a new post"
+}
+
+### UPDATE A POST ? private
+PUT http://localhost:8000/posts/7 HTTP/1.1
+content-type: 'application/json'
+
+{
+  "title": "New Updated Post",
+  "body": "This is an updated post"
+}
+
+### DELETE A POST ? private
+DELETE http://localhost:8000/posts/7 HTTP/1.1
+
+###### ADMIN ROUTES
+
+### REGISTER AN ADMIN ? public
+POST http://localhost:8000/admin/register HTTP/1.1
+content-type: 'application/json'
+
+{
+  "name": "Elijah",
+  "password": "3495"
+}
+
+### LOGIN AN ADMIN ? public
+POST http://localhost:8000/admin/login  HTTP/1.1
+content-type: 'application/json'
+
+{
+  "name": "Elijah",
+  "password": "3495"
+}
